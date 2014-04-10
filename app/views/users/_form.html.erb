@@ -1,0 +1,16 @@
+<%= form_for(@user) do |f| %>
+  <div class="form-group">
+    <%= f.label :user_name %></br>
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %></br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation %></br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>
+
