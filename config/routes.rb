@@ -6,4 +6,5 @@ PhotoSharing::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   resources :users
   resources :sessions
+  resources :attachments
 end

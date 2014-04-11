@@ -1,4 +1,28 @@
-<h1>User Profile</h2>
+<center><h1><%=@user.user_name%>'s Profile</h2></center>
 
 
-<p> This is my profile </p>
+<left><%= image_tag @user.avatar.url(:thumb) %></left>
+<%= link_to "Edit", edit_user_path(@user), :class => "btn btn-success"%>
+
+<h6>About me</h6>
+
+
+<%= form_for @attachment, :url => attachments_path, :html => { :multipart => true } do |f| %>
+  <div class="form-group">
+    <%= f.label :add_photo %>
+    <%= f.file_field :photo %>
+    <%= hidden_field_tag(:user_id, @user.id) %>
+  </div>
+
+  <%= f.submit(:class => "btn btn-primary") %>
+
+<% end %>
+
+
+
+<h6>My Photos</h6>
+    <% @photos.each do |photo| %>
+    <%= image_tag photo .photo.url(:medium) %>
+    <% end %>
+
+

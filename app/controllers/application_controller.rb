@@ -9,7 +9,7 @@ private
   helper_method :current_user
 
   def authorize
-    redirect_to('new')
     flash[:alert] = "Not authorized" if current_user.nil?
+    redirect_to(root_path)
   end
 end
